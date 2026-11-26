@@ -68,12 +68,14 @@ p { margin: 0; }
 
 /* hero */
 .hero { position: relative; overflow: hidden; background: var(--bg); }
-.hero-bg { position: absolute; inset: 0; background: url(img/hero-desk.webp) center 56% / cover no-repeat; pointer-events: none; }
-.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,5,5,0.88) 0%, rgba(5,5,5,0.64) 50%, rgba(5,5,5,0.44) 100%), linear-gradient(180deg, rgba(5,5,5,0.5) 0%, rgba(5,5,5,0) 28%, rgba(5,5,5,0) 68%, #050505 100%); }
+.hero-bg { position: absolute; inset: -6px; background: url(img/hero-desk.webp) center 56% / cover no-repeat; pointer-events: none; filter: saturate(0.8); }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.78) 55%, rgba(5,5,5,0.6) 100%), linear-gradient(180deg, rgba(5,5,5,0.5) 0%, rgba(5,5,5,0) 28%, rgba(5,5,5,0) 68%, #050505 100%); }
+.hero .wrap h1 { text-shadow: 0 2px 28px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.6); }
+.hero .wrap .kicker { text-shadow: 0 1px 10px rgba(0,0,0,0.95); }
 .hero .wrap .lede { color: var(--fg); text-shadow: 0 1px 14px rgba(0,0,0,0.95), 0 0 3px rgba(0,0,0,0.9); }
 .hero .wrap .fine { text-shadow: 0 1px 10px rgba(0,0,0,0.95); }
 .hero .wrap .ctas .btn:not(.solid) { background: rgba(5,5,5,0.72); }
-@media (max-width: 700px) { .hero-bg { background-image: url(img/hero-desk-sm.webp); background-position: 42% 50%; } .hero-bg::after { background: linear-gradient(180deg, rgba(5,5,5,0.72) 0%, rgba(5,5,5,0.6) 55%, #050505 100%); } .hero .wrap { padding-block: 64px 72px; } }
+@media (max-width: 700px) { .hero-bg { background-image: url(img/hero-desk-sm.webp); background-position: 42% 50%; } .hero-bg::after { background: linear-gradient(180deg, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.74) 55%, #050505 100%); } .hero .wrap { padding-block: 64px 72px; } }
 .hero .wrap { position: relative; z-index: 1; padding-block: 96px 104px; min-height: min(40vw, 760px); display: flex; flex-direction: column; justify-content: center; }
 .hero h1 { font-size: clamp(76px, 15vw, 184px); margin-top: 18px; }
 .hero h1 em { font-style: normal; color: var(--accent); }
