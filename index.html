@@ -95,6 +95,24 @@ p { margin: 0; }
 .feature .meta h3 { font-size: 30px; }
 .feature .meta span { font-size: 14px; color: var(--fg-2); }
 
+/* section backgrounds: faint charts, texture only */
+.pull, #truths, #operator, #mission, .cta { position: relative; overflow: hidden; }
+.pull > .wrap, #truths > .wrap, #operator > .wrap, #mission > .wrap, .cta > .wrap { position: relative; z-index: 1; }
+.pull::before, #truths::before, #operator::before, #mission::before, .cta::before { content: ""; position: absolute; pointer-events: none; background-repeat: no-repeat; background-size: cover; }
+.pull::before { inset: 0; background-image: url(img/bg-trend.svg); background-position: center; opacity: 0.16; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); }
+#truths::before { top: 0; right: 0; width: 56%; height: 250px; background-image: url(img/bg-candles.svg); background-position: right center; opacity: 0.17; -webkit-mask-image: linear-gradient(90deg, transparent, #000 50%), linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(90deg, transparent, #000 50%), linear-gradient(180deg, #000 55%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+#operator::before { top: 0; right: 0; width: 62%; height: 250px; background-image: url(img/bg-trend.svg); background-position: right center; opacity: 0.18; -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%), linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(90deg, transparent, #000 45%), linear-gradient(180deg, #000 55%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+#mission > .wrap { padding-bottom: 190px; }
+#mission::before { left: 0; right: 0; bottom: 0; height: 200px; background-image: url(img/bg-candles.svg); background-position: center bottom; transform: scaleX(-1); opacity: 0.16; -webkit-mask-image: linear-gradient(180deg, transparent, #000 45%), linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(180deg, transparent, #000 45%), linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+@media (max-width: 900px) { #mission > .wrap { padding-bottom: 150px; } #mission::before { height: 150px; } #truths::before, #operator::before { width: 80%; height: 180px; } }
+.cta::before { content: ""; position: absolute; pointer-events: none; background-repeat: no-repeat; background-size: cover; }
+.pull::before { inset: 0; background-image: url(img/bg-trend.svg); background-position: center; opacity: 0.16; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); }
+#truths::before { top: 0; right: 0; width: 56%; height: 250px; background-image: url(img/bg-candles.svg); background-position: right center; opacity: 0.17; -webkit-mask-image: linear-gradient(90deg, transparent, #000 50%), linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(90deg, transparent, #000 50%), linear-gradient(180deg, #000 55%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+#operator::before { top: 0; right: 0; width: 62%; height: 250px; background-image: url(img/bg-trend.svg); background-position: right center; opacity: 0.18; -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%), linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(90deg, transparent, #000 45%), linear-gradient(180deg, #000 55%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+#mission::before { left: 0; right: 0; bottom: 0; height: 260px; background-image: url(img/bg-candles.svg); background-position: center bottom; transform: scaleX(-1); opacity: 0.12; -webkit-mask-image: linear-gradient(180deg, transparent, #000 80%); mask-image: linear-gradient(180deg, transparent, #000 80%); }
+.cta::before { inset: 0; background-image: url(img/bg-trip.svg); background-position: center; opacity: 0.38; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 90%, transparent); }
+@media (max-width: 700px) { .cta::before { background-position: 82% center; opacity: 0.26; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 96%, transparent); } }
+
 /* receipts tape */
 .tape { border-block: 1px solid var(--line); background: var(--bg-2); overflow: hidden; white-space: nowrap; }
 .tape-track { display: inline-flex; gap: 0; padding-block: 12px; animation: tape 130s linear infinite; }
