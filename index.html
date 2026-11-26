@@ -528,7 +528,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
   </section>
 </div>
 
-<footer><div class="wrap"><span>&copy; 2026 <b class="brand">Endl3ss Tr3nds</b> &middot; <a href="#top">Channel</a> &middot; <a href="#logbook">Logbook</a></span><span>One trader's real account. Nothing here is financial advice.</span></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 <b class="brand">Endl3ss Tr3nds</b> &middot; <a href="#top">Channel</a> &middot; <a href="#logbook">Logbook</a> &middot; <a class="mail" data-u="jj" data-d="endl3sstr3nds.com" href="#top">jj [at] endl3sstr3nds.com</a></span><span>One trader's real account. Nothing here is financial advice.</span></div></footer>
 
 <script>
 (function () {
@@ -590,6 +590,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
     if (h === 'logbook' || h === 'top' || !el) window.scrollTo(0, 0); else el.scrollIntoView();
     all();
   }
+  [].forEach.call(document.querySelectorAll('a.mail'), function (a) { var m = a.getAttribute('data-u') + '@' + a.getAttribute('data-d'); a.href = 'mailto:' + m; a.textContent = m; });
   route(!!location.hash); window.addEventListener('hashchange', function () { route(true); });
 })();
 </script>
