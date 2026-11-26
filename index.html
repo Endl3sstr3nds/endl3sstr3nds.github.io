@@ -52,7 +52,9 @@ p { margin: 0; }
 /* nav */
 .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(5,5,5,0.86); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-size: 30px; text-decoration: none; letter-spacing: 0.02em; }
+.logo { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 17px; font-weight: 600; text-transform: uppercase; text-decoration: none; letter-spacing: 0.12em; white-space: nowrap; }
+.logo b { font-weight: 600; }
+.brand { font-family: var(--mono); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 .logo span { color: var(--accent); }
 .links { display: flex; gap: 26px; font-size: 15px; font-weight: 500; }
 .links a { text-decoration: none; color: var(--fg-2); }
@@ -226,7 +228,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
   .vside .vcard .thumb { aspect-ratio: 16 / 9; min-height: 0; }
   .nav .btn { padding: 10px 12px; font-size: 14px; }
   .nav .wrap { gap: 10px; }
-  .logo { font-size: 24px; }
+  .logo { font-size: 13px; letter-spacing: 0.08em; }
   .logo svg { display: none; }
   .wo-fields { grid-template-columns: 1fr; }
   .wo-fields .k { border-right: 0; border-bottom: 0; padding-bottom: 0; }
@@ -239,7 +241,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Endl3ss Tr3nds home">
       <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true"><rect x="1" y="12" width="4" height="9" fill="#ff5f0f"/><rect x="8" y="7" width="4" height="14" fill="#ff5f0f"/><rect x="15" y="10" width="4" height="11" fill="#ff5f0f"/><rect x="22" y="2" width="3" height="19" fill="#ff5f0f"/></svg>
-      <b style="font-weight:400">Endl<span>3</span>ss Tr<span>3</span>nds</b>
+      <b>Endl<span>3</span>ss Tr<span>3</span>nds</b>
     </a>
     <nav class="links" aria-label="Sections"><a href="#videos">Videos</a><a href="#truths">Hard truths</a><a href="#mission">Why</a><a class="page" href="#logbook">Logbook</a></nav>
     <a class="btn solid" href="https://www.youtube.com/@Endl3sstr3nds">Subscribe</a>
@@ -498,7 +500,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
   </section>
 </div>
 
-<footer><div class="wrap"><span>&copy; 2026 Endl3ss Tr3nds &middot; <a href="#top">Channel</a> &middot; <a href="#logbook">Logbook</a></span><span>One trader's real account. Nothing here is financial advice.</span></div></footer>
+<footer><div class="wrap"><span>&copy; 2026 <b class="brand">Endl3ss Tr3nds</b> &middot; <a href="#top">Channel</a> &middot; <a href="#logbook">Logbook</a></span><span>One trader's real account. Nothing here is financial advice.</span></div></footer>
 
 <script>
 (function () {
