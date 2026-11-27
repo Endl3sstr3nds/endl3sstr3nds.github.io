@@ -295,7 +295,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
   </section>
 
   <div class="tape" aria-label="Daily receipts, newest first">
-    <div class="tape-track">
+    <!--auto:tape--><div class="tape-track">
       <span class="tape-item day"><b>DAY 3</b>Wed Nov 25</span>
       <span class="tape-item"><b>NET</b><span class="neg">&minus;$34.30</span></span>
       <span class="tape-item"><b>ROUND TRIPS</b>3</span>
@@ -348,7 +348,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
       <span class="tape-item" aria-hidden="true"><b>COMMISSIONS</b>$27.45</span>
       <span class="tape-item" aria-hidden="true"><b>WORST HOURS</b>4&ndash;7 AM &minus;$123</span>
       <span class="tape-item" aria-hidden="true"><b>STOPS ON WORST TRADES</b>0</span>
-    </div>
+    </div><!--/auto:tape-->
   </div>
 
   <section class="pull" aria-label="Quote">
@@ -408,11 +408,11 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
           </div>
         </div>
         <div class="stats">
-          <div class="stat"><b class="neg">&minus;$158</b><span>Running net after 3 days, commissions included</span></div>
+          <!--auto:home--><div class="stat"><b class="neg">&minus;$158</b><span>Running net after 3 days, commissions included</span></div>
           <div class="stat"><b class="neg">&minus;$34</b><span>Day 3 net. Three scalps, zero winners. Nearly all of it was two AMD shorts at 10 PM the night before</span></div>
           <div class="stat"><b>91</b><span>Round trips in 3 days: 81, then 7, then 3</span></div>
           <div class="stat"><b>62%</b><span>Largest single position on Day 3. Day 1 was 177%, Day 2 was 45%. My limit is 25%</span></div>
-          <p class="src">My own broker statements, Mon Nov 23 through Wed Nov 25, 2026. A trade date runs 8 PM to 8 PM ET, so Tuesday night's overnight session counts toward Wednesday. These are the numbers I'm working to change.</p>
+          <p class="src">My own broker statements, Mon Nov 23 through Wed Nov 25, 2026. A trade date runs 8 PM to 8 PM ET, so Tuesday night's overnight session counts toward Wednesday. These are the numbers I'm working to change.</p><!--/auto:home-->
           <a class="btn" href="#logbook" style="justify-self:start">Open the logbook &rarr;</a>
         </div>
       </div>
@@ -438,29 +438,29 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
       <h1>Fault <em>report.</em></h1>
       <p class="lede">Years as a turbine tech taught me one thing: you can only pencil whip so much. So every trading day gets a work order: what fucked up, the root cause, and why it's night shift's fault. Losing days stay up.</p>
       <div class="lb-totals">
-        <div><b class="neg">&minus;$158.07</b><span>Running net after 3 days</span></div>
+        <!--auto:totals--><div><b class="neg">&minus;$158.07</b><span>Running net after 3 days</span></div>
         <div><b>91</b><span>Round trips so far</span></div>
         <div><b>3</b><span>Work orders open</span></div>
-        <div><b>0</b><span>Work orders closed</span></div>
+        <div><b>0</b><span>Work orders closed</span></div><!--/auto:totals-->
       </div>
     </div>
   </section>
 
   <section class="block" id="daily-log">
     <div class="wrap">
-      <div class="head-row"><div><span class="kicker">Daily log</span><h2>Every shift, on the record</h2><p>Straight off the broker statement, commissions included. Trade date runs 8 PM to 8 PM ET. Clock-in is at the desk, ready to go, by 8:00 AM. One minute past gets tagged LATE.</p></div></div>
+      <div class="head-row"><div><span class="kicker">Daily log</span><h2>Every shift, on the record</h2><p>Straight off the broker statement, commissions included. Trade date runs 8 PM to 8 PM ET. Clock-in is at the desk, ready to go, by 8:00 AM. One minute past gets tagged LATE. Each day posts itself at 8:12 PM ET, straight from the broker, whether I like the numbers or not.</p></div></div>
       <div class="lb-table">
         <table>
           <thead><tr><th>Date</th><th>Clock in</th><th class="num">Net P&amp;L</th><th class="num">Round trips</th><th class="num">Win rate</th><th>Finding</th><th>Work order</th></tr></thead>
           <tbody>
-            <tr class="pending"><td>Fri Nov 27</td><td>&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td>Half day. Entry posts after the 1 PM close</td><td>&mdash;</td></tr>
+            <!--auto:rows--><tr class="pending"><td>Fri Nov 27</td><td>&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td>Half day. Posts itself at 8:12 PM ET</td><td>&mdash;</td></tr>
             <tr><td>Wed Nov 25</td><td>After 10 AM <span class="tag late">Late</span></td><td class="num neg">&minus;$34.30</td><td class="num">3</td><td class="num">0%</td><td>10 PM AMD shorts, added to a loser, 0 for 3</td><td><a href="#wo-003">WO-003 &rarr;</a></td></tr>
             <tr><td>Tue Nov 24</td><td>&mdash;</td><td class="num pos">+$21.27</td><td class="num">7</td><td class="num">29%</td><td>Swings paid $57, HPE scalps gave $36 back</td><td><a href="#wo-002">WO-002 &rarr;</a></td></tr>
-            <tr><td>Mon Nov 23</td><td>&mdash;</td><td class="num neg">&minus;$145.03</td><td class="num">81</td><td class="num">30%</td><td>Oversized scalps, no stops, revenge trades</td><td><a href="#wo-001">WO-001 &rarr;</a></td></tr>
+            <tr><td>Mon Nov 23</td><td>&mdash;</td><td class="num neg">&minus;$145.03</td><td class="num">81</td><td class="num">30%</td><td>Oversized scalps, no stops, revenge trades</td><td><a href="#wo-001">WO-001 &rarr;</a></td></tr><!--/auto:rows-->
           </tbody>
         </table>
       </div>
-      <p class="lb-key"><span>Clock in, due 8:00 AM ET:</span><span class="tag ok">On time</span><span class="tag late">Late</span><span class="tag late">No punch</span><span>The time clock started Wed Nov 25.</span></p>
+      <p class="lb-key"><span>Clock in, due 8:00 AM ET:</span><span class="tag ok">On time</span><span class="tag late">Late</span><span class="tag late">N/A</span><span>N/A in red means I didn't turn in my part that day. The time clock started Wed Nov 25.</span></p>
     </div>
   </section>
 
@@ -468,7 +468,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
     <div class="wrap">
       <div class="head-row"><div><span class="kicker">Work orders</span><h2>What broke, and why</h2></div></div>
       <div class="wo-list">
-        <article class="wo" id="wo-003">
+        <!--auto:wos--><article class="wo" id="wo-003">
           <div class="wo-head"><span><b>WO-003</b> &middot; Unit: trading account</span><span>Reported Wed Nov 25 2026</span><span class="status">Open</span></div>
           <div class="wo-fields">
             <div class="k">Symptom</div>
@@ -493,7 +493,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
             <div class="k">Corrective action</div>
             <div class="v">WO-001 stays open. Same fix: written setup card first, 1% risk, 25% max position.</div>
             <div class="k">Journal</div>
-            <div class="v">No journal entry. Operator skipped his paperwork.</div>
+            <div class="v"><span class="tag late">N/A</span></div>
           </div>
         </article>
         <article class="wo" id="wo-001">
@@ -508,7 +508,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
             <div class="k">Verify by</div>
             <div class="v">10 trading days of journal entries showing planned trades only.</div>
           </div>
-        </article>
+        </article><!--/auto:wos-->
       </div>
     </div>
   </section>

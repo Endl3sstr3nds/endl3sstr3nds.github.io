@@ -1,0 +1,200 @@
+{
+ "_readme": "One record per trading day, oldest first. tools/build.py renders these into index.html. tools/post_day.py appends a day from the broker fills. inbox holds a clock-in time or journal entry given ahead of the nightly post, keyed by date.",
+ "limit_pct": 25,
+ "clock_due": "8:00 AM",
+ "pending": [
+  {
+   "date": "2026-11-27",
+   "note": "Half day. Posts itself at 8:12 PM ET"
+  }
+ ],
+ "inbox": {},
+ "days": [
+  {
+   "date": "2026-11-23",
+   "n": 1,
+   "net": -145.0349,
+   "round_trips": 81,
+   "wins": 24,
+   "fills": 229,
+   "commissions": 27.45,
+   "largest_pct": 177,
+   "clock_in": "&mdash;",
+   "finding": "Oversized scalps, no stops, revenge trades",
+   "home_note": "Oversized scalps on day one, no stops on the worst trades",
+   "tape": [
+    [
+     "ROUND TRIPS",
+     "81"
+    ],
+    [
+     "WIN RATE",
+     "30%"
+    ],
+    [
+     "LARGEST SIZE",
+     "177% of acct"
+    ],
+    [
+     "COMMISSIONS",
+     "$27.45"
+    ],
+    [
+     "WORST HOURS",
+     "4&ndash;7 AM &minus;$123"
+    ],
+    [
+     "STOPS ON WORST TRADES",
+     "0"
+    ]
+   ],
+   "wo": {
+    "id": "WO-001",
+    "status": "Open",
+    "fields": [
+     [
+      "Root cause (def night shift)",
+      "<ul><li>Oversized: one position hit 177% of the account</li><li>No stops on the worst trades</li><li>Revenge pattern: 8 trades within 30 minutes of the first loss at 4:16 AM</li><li>Wrong hours: 4&ndash;7 AM lost $123 on its own</li></ul>"
+     ],
+     [
+      "Corrective action",
+      "Written setup card before every trade. 1% risk, 25% max position, plain stops, planning done after the close."
+     ],
+     [
+      "Verify by",
+      "10 trading days of journal entries showing planned trades only."
+     ]
+    ]
+   },
+   "auto": false
+  },
+  {
+   "date": "2026-11-24",
+   "n": 2,
+   "net": 21.2692,
+   "round_trips": 7,
+   "wins": 2,
+   "fills": 27,
+   "commissions": 0.22,
+   "largest_pct": 45,
+   "clock_in": "&mdash;",
+   "finding": "Swings paid $57, HPE scalps gave $36 back",
+   "home_note": "Swings paid, then seven HPE short scalps gave most of it back",
+   "tape": [
+    [
+     "SWINGS CLOSED",
+     "6, five green <span class=\"pos\">+$56.83</span>"
+    ],
+    [
+     "HPE SCALPS",
+     "7, five red <span class=\"neg\">&minus;$35.56</span>"
+    ],
+    [
+     "ROUND TRIPS",
+     "7"
+    ],
+    [
+     "WIN RATE",
+     "29%"
+    ],
+    [
+     "LARGEST SIZE",
+     "45% of acct"
+    ],
+    [
+     "COMMISSIONS",
+     "$0.22"
+    ],
+    [
+     "WORST HOURS",
+     "10 AM&ndash;2 PM &minus;$36"
+    ],
+    [
+     "EXITS BY STOP ORDER",
+     "0 of 7"
+    ]
+   ],
+   "wo": {
+    "id": "WO-002",
+    "status": "Open",
+    "fields": [
+     [
+      "What worked",
+      "Six swing positions closed, five of them green: +$56.83."
+     ],
+     [
+      "Root cause (def night shift)",
+      "<ul><li>Green day, same fault: seven HPE short scalps, five losers, &minus;$35.56. They gave back 63% of what the swings made</li><li>Oversized: the first HPE short was 45% of the account, and six of the seven were over the 25% limit</li><li>Re-entry: after the first loss at 10:55 AM, short again inside two minutes, twice in a row</li><li>No HPE trade was closed by a stop order</li></ul>"
+     ],
+     [
+      "Corrective action",
+      "WO-001 stays open. Same fix: written setup card first, 1% risk, 25% max position."
+     ],
+     [
+      "Journal",
+      "<span class=\"tag late\">N/A</span>"
+     ]
+    ]
+   },
+   "auto": false
+  },
+  {
+   "date": "2026-11-25",
+   "n": 3,
+   "net": -34.301,
+   "round_trips": 3,
+   "wins": 0,
+   "fills": 8,
+   "commissions": 5.14,
+   "largest_pct": 62,
+   "clock_in": "After 10 AM <span class=\"tag late\">Late</span>",
+   "finding": "10 PM AMD shorts, added to a loser, 0 for 3",
+   "home_note": "Three scalps, zero winners. Nearly all of it was two AMD shorts at 10 PM the night before",
+   "tape": [
+    [
+     "ROUND TRIPS",
+     "3"
+    ],
+    [
+     "WIN RATE",
+     "0%"
+    ],
+    [
+     "LARGEST SIZE",
+     "62% of acct"
+    ],
+    [
+     "COMMISSIONS",
+     "$5.14"
+    ],
+    [
+     "WORST HOURS",
+     "10&ndash;11 PM overnight &minus;$34"
+    ],
+    [
+     "EXITS BY STOP ORDER",
+     "0 of 3"
+    ]
+   ],
+   "wo": {
+    "id": "WO-003",
+    "status": "Open",
+    "fields": [
+     [
+      "Root cause (def night shift)",
+      "<ul><li>Told ya it was night shift: two AMD shorts between 10:06 and 10:33 PM Tuesday lost $34.23</li><li>Added to a loser: short 5 shares at $400.69, added 2 more at $404.27 as it ran against me, covered all 7 for &minus;$18.34</li><li>Re-entry: short again 51 seconds after taking that loss, covered nine minutes later for another &minus;$15.89</li><li>Oversized: the AMD short hit 62% of the account, and all three trades were over the 25% limit</li><li>Commissions were $5.14, 15% of the day's loss. Overnight fills ran about a dollar an order</li><li>The only regular-hours trade was an order-entry mistake: a TSLA sell limit placed below the market where a sell stop was meant, so it filled on the spot. Closed 10 seconds later for &minus;$0.07. No trade was closed by a stop order</li></ul>"
+     ],
+     [
+      "Corrective action",
+      "WO-001 stays open. Same fix: written setup card first, 1% risk, 25% max position."
+     ],
+     [
+      "Journal",
+      "&ldquo;I was late today. Probably after 10 AM. Partied too much last night. Felt like ass so i called in.. Again. Tried for a TSLA short position from a reversal at yesterdays close but the setup sucked. Well, there was an accidental fill. I used a limit order instead of a stop order below the current price for a short position and it auto filled. I wasn't paying attention i guess. So i just closed the position. for a $0.07 loss.&rdquo;"
+     ]
+    ]
+   },
+   "auto": false
+  }
+ ]
+}
