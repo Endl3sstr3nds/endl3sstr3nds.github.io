@@ -5,10 +5,14 @@
  "pending": [
   {
    "date": "2026-11-27",
-   "note": "Half day. Posts itself at 8:12 PM ET"
+   "note": "Day off, called in before the shift"
   }
  ],
- "inbox": {},
+ "inbox": {
+  "2026-11-27": {
+   "off": true
+  }
+ },
  "days": [
   {
    "date": "2026-11-23",
