@@ -165,6 +165,24 @@ section.block .wrap { padding-block: 80px; }
 .stat b.neg { color: var(--loss); }
 .stat span { color: var(--fg-2); font-size: 15px; }
 .stats .src { font-size: 13px; color: var(--fg-2); }
+.operator { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.op-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.op-photos figure { margin: 0; position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--card); aspect-ratio: 4 / 5; }
+.op-photos .op-main { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+.op-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.op-photos figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 9px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg); background: linear-gradient(transparent, rgba(5, 5, 5, 0.88)); }
+.op-head h2 em { font-style: normal; color: var(--accent); }
+.operator .copy { display: grid; gap: 16px; color: var(--fg-2); max-width: 60ch; }
+.operator .copy strong { color: var(--fg); font-weight: 600; }
+.plate { margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; overflow: hidden; font-family: var(--mono); font-size: 14px; }
+.plate div { display: grid; gap: 4px; align-content: start; padding: 14px 18px; background: var(--card); }
+.plate div.wide { grid-column: span 2; }
+.plate dt { color: var(--fg-2); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.plate dd { margin: 0; color: var(--fg); }
+@media (min-width: 901px) { .op-photos, .mission .stats { position: sticky; top: 92px; } }
+#operator, #mission { overflow: clip; }
+@media (max-width: 900px) { .operator { grid-template-columns: 1fr; gap: 28px; } .plate { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .plate { font-size: 13px; } .plate div { padding: 12px 14px; } .op-photos { gap: 6px; } .op-photos figcaption { font-size: 9px; padding: 20px 8px 7px; } }
 
 /* subscribe */
 .cta { background: radial-gradient(50% 120% at 50% 100%, rgba(255, 95, 15, 0.16), transparent 70%), var(--bg-2); border-top: 1px solid var(--line); text-align: center; }
@@ -272,7 +290,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
       <span class="mark" aria-hidden="true"><span>E<em>3</em></span><span>T<em>3</em></span></span>
       <b>Endl<span>3</span>ss Tr<span>3</span>nds</b>
     </a>
-    <nav class="links" aria-label="Sections"><a href="#videos">Videos</a><a href="#truths">Hard truths</a><a href="#mission">Why</a><a class="page" href="#logbook">Logbook</a></nav>
+    <nav class="links" aria-label="Sections"><a href="#videos">Videos</a><a href="#truths">Hard truths</a><a href="#operator">About</a><a href="#mission">Why</a><a class="page" href="#logbook">Logbook</a></nav>
     <a class="btn solid" href="https://www.youtube.com/@Endl3sstr3nds">Subscribe</a>
   </div>
 </header>
@@ -393,6 +411,38 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
     </div>
   </section>
 
+  <section class="block" id="operator">
+    <div class="wrap">
+      <div class="head-row op-head"><div><span class="kicker">About me</span><h2>The <em>operator.</em></h2></div></div>
+      <div class="operator">
+        <div class="op-photos">
+          <figure class="op-main"><img src="img/operator-1.webp" width="1280" height="960" loading="lazy" alt="JJ in a hard hat and mirrored safety glasses on a power plant job site, grinning, thumbs up"><figcaption>Field office</figcaption></figure>
+          <figure><img src="img/operator-2.webp" width="900" height="1362" loading="lazy" style="object-position: 72% 28%" alt="JJ working inside a gas turbine casing"><figcaption>Inside the unit</figcaption></figure>
+          <figure><img src="img/operator-3.webp" width="900" height="1200" loading="lazy" style="object-position: 50% 18%" alt="JJ in a hard hat with a JJ sticker on it, giving a thumbs up"><figcaption>Hat says JJ</figcaption></figure>
+          <figure><img src="img/operator-4.webp" width="900" height="1125" loading="lazy" alt="JJ after a shift, shirt covered in grease, not smiling"><figcaption>End of shift</figcaption></figure>
+        </div>
+        <div>
+          <div class="copy">
+            <p>Name's Justin but I usually go by JJ in the field. I grew up knowing one day I would have the impossible task of filling my father's shoes, so I got my first job at 14 years old. Ended up having to get a work permit from the state so the company couldn't get accused of breaking child labor laws.</p>
+            <p>Remained a blue collar worker until about May of '26. Always manual labor, always long hours, always unappreciated. About half of my working life was anything from making ice cream cones at Dairy Queen to painting cars and everything in between.</p>
+            <p>I eventually had a friend get hired on by a subcontracting company to do pump/valve replacements at power plants. I received a call from him and was made aware that the pay there was substantially better than my current profession so I hit the road.</p>
+            <p>The plants were hot, the hours were long, there were a million regulations, and you were almost always assured to have some brown-nosing bitch that no one could stand as your shift lead. By the end of my career on the road I was a top level precision tech working for the biggest name in gas turbines.</p>
+            <p>I've worked in one of the most physically/mentally draining heavy industrial jobs in the US for over a decade. We work 7/12's rain or shine for months at a time doing the most physically taxing jobs imaginable. I was sometimes only home for a month or two for the entire year. I've missed more birthdays, holidays, family emergencies, etc. than I'd even care to admit but, brother, nothing could've prepared me for the toll this shit has taken on me.</p>
+          </div>
+        </div>
+      </div>
+      <dl class="plate" aria-label="Data plate">
+        <div><dt>Unit</dt><dd>JJ</dd></div>
+        <div><dt>In service</dt><dd>2005</dd></div>
+        <div><dt>Trade</dt><dd>Turbine tech, millwright</dd></div>
+        <div><dt>Last post</dt><dd>Precision tech, gas turbines</dd></div>
+        <div class="wide"><dt>Worked on</dt><dd>Gas and steam turbines, pumps and valves</dd></div>
+        <div><dt>Trading since</dt><dd>2018</dd></div>
+        <div><dt>Condition</dt><dd>Runs rough. Under repair.</dd></div>
+      </dl>
+    </div>
+  </section>
+
   <section class="block" id="mission">
     <div class="wrap">
       <div class="mission">
@@ -402,9 +452,13 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
           <div class="copy">
             <p>I spent ten years on the road as a gas turbine technician. During that time I also learned how to trade. Or so I thought.</p>
             <p>In May of 2026, I decided I'd take the leap and try to trade full time. Going from a 7/12s schedule to working from home, where nobody sets a start time or tells you when to walk away.</p>
-            <p>I'll admit that I'm not a badass trader that has all the answers. In fact, I'm the guy that tells you that, even with ten years of extensive trading knowledge, I still don't know shit. <strong>This will be the most difficult goal you'll ever attempt to achieve in your life. And I'm gonna show you why.</strong></p>
-            <p>I am making this channel to give absolute full transparency of my trading days. The real P&amp;L, the rules I know I need to follow yet still end up breaking anyways. The orders will be documented and automatically posted daily without any requirements or needed permissions of mine prior to the uploads. This channel is dedicated to showing factual information. No bullshit, no fake stories, none of that.</p>
-            <p>I'm hoping I can get a following and start some sort of community of traders of all experience levels together, so we can all learn from each other and give personal advice. The odds are against any one of us alone. Maybe if we help each other enough, we can all make some real money one day.</p>
+            <p>Never in my life did I think that sitting at a desk all day could do what it does to someone.</p>
+            <p>Yes, being a precision tech that could potentially destroy a 10 million dollar machine if your measurements are written down with the decimal one place over in the wrong direction is pressure, but there is a safety net behind you to review everything. You might get your ass chewed but the machine still ends up running smoothly.</p>
+            <p>Not like that here. You fail and it's all on you. And typically it starts as a small fail so you figure you just missed that one. Next time. Then fail again. So you start to lose money. Then you make a couple good trades for small returns. So the next thought in your mind is, "Well if I was to double my position size I'll make double the profit"...</p>
+            <p>You'll read this and think, "fuck.. yeah I was there". Well I was too. I've ended up losing around 50 thousand dollars in the last six months or so. I've nearly maxed out all my credit cards. All my 401k is gone.</p>
+            <p>I've risked everything I have because I made a promise to myself ten years ago that I wanted this ONEEEE thing in my life and although I had convinced myself that I'm far too unintelligent to be able to pull it off, I can't allow myself to give up.</p>
+            <p>I am making this channel to give absolute full transparency of my trading days. The real P&amp;L, the rules I know I need to follow yet still end up breaking anyways. The orders will be documented and automatically posted daily without any requirements or needed permissions of mine prior to the uploads.</p>
+            <p>And I just wanna say this.. I've had a lot of fear and gained a lot of courage that I didn't think I'd have to be willing to put myself out there like this but this is from me, as a man, to you.... I need this. Far beyond the money, I need this for me.. To finally prove to myself that I AM capable. I AM smart enough. I WILL achieve this. Or I'll fuckin lose everything I've worked so hard for my entire life trying...</p>
           </div>
         </div>
         <div class="stats">
