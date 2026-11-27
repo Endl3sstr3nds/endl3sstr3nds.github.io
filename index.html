@@ -166,9 +166,13 @@ section.block .wrap { padding-block: 80px; }
 .stat span { color: var(--fg-2); font-size: 15px; }
 .stats .src { font-size: 13px; color: var(--fg-2); }
 .operator { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
-.op-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-.op-photos figure { margin: 0; position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--card); aspect-ratio: 4 / 5; }
-.op-photos .op-main { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+.op-video { margin: 0 0 24px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; aspect-ratio: 21 / 9; background: var(--card); }
+.op-video video { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.op-photos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.op-photos figure { margin: 0; position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--card); aspect-ratio: 4 / 5; grid-column: span 2; }
+.op-photos .op-main { grid-column: span 4; aspect-ratio: 4 / 3; }
+.op-photos .op-tall { aspect-ratio: auto; }
+.op-photos .op-tall img { position: absolute; inset: 0; }
 .op-photos img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .op-photos figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 9px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg); background: linear-gradient(transparent, rgba(5, 5, 5, 0.88)); }
 .op-head h2 em { font-style: normal; color: var(--accent); }
@@ -182,6 +186,7 @@ section.block .wrap { padding-block: 80px; }
 @media (min-width: 901px) { .op-photos, .mission .stats { position: sticky; top: 92px; } }
 #operator, #mission { overflow: clip; }
 @media (max-width: 900px) { .operator { grid-template-columns: 1fr; gap: 28px; } .plate { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .op-video { aspect-ratio: 16 / 9; margin-bottom: 16px; } }
 @media (max-width: 520px) { .plate { font-size: 13px; } .plate div { padding: 12px 14px; } .op-photos { gap: 6px; } .op-photos figcaption { font-size: 9px; padding: 20px 8px 7px; } }
 
 /* subscribe */
@@ -414,9 +419,11 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
   <section class="block" id="operator">
     <div class="wrap">
       <div class="head-row op-head"><div><span class="kicker">About me</span><h2>The <em>operator.</em></h2></div></div>
+      <figure class="op-video"><video autoplay muted loop playsinline preload="metadata" poster="img/operator-torch.webp" aria-label="JJ lighting a heating torch beside an open turbine casing"><source src="img/operator-torch.mp4" type="video/mp4"></video></figure>
       <div class="operator">
         <div class="op-photos">
           <figure class="op-main"><img src="img/operator-1.webp" width="1280" height="960" loading="lazy" alt="JJ in a hard hat and mirrored safety glasses on a power plant job site, grinning, thumbs up"></figure>
+          <figure class="op-tall"><img src="img/operator-5.webp" width="900" height="1330" loading="lazy" style="object-position: 50% 30%" alt="JJ standing on a work platform in front of an open turbine casing, hands in his pockets"></figure>
           <figure><img src="img/operator-2.webp" width="900" height="1362" loading="lazy" style="object-position: 72% 28%" alt="JJ working inside a gas turbine casing"></figure>
           <figure><img src="img/operator-3.webp" width="900" height="1200" loading="lazy" style="object-position: 50% 18%" alt="JJ in a hard hat with a JJ sticker on it, giving a thumbs up"></figure>
           <figure><img src="img/operator-4.webp" width="900" height="1125" loading="lazy" alt="JJ after a shift, shirt covered in grease, not smiling"></figure>
@@ -644,6 +651,7 @@ footer .wrap { padding-block: 30px; display: flex; flex-wrap: wrap; gap: 14px; j
     if (h === 'logbook' || h === 'top' || !el) window.scrollTo(0, 0); else el.scrollIntoView();
     all();
   }
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { [].forEach.call(document.querySelectorAll('video[autoplay]'), function (v) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; }); }
   [].forEach.call(document.querySelectorAll('a.mail'), function (a) { var m = a.getAttribute('data-u') + '@' + a.getAttribute('data-d'); a.href = 'mailto:' + m; a.textContent = m; });
   route(!!location.hash); window.addEventListener('hashchange', function () { route(true); });
 })();
