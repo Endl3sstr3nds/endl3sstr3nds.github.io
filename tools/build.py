@@ -29,6 +29,9 @@ def cls(v): return 'neg' if round(v, 2) < 0 else ('pos' if round(v, 2) > 0 else 
 def winrate(d): return f"{round(100 * d['wins'] / d['round_trips'])}%" if d['round_trips'] else '&mdash;'
 
 
+OFF = '<span class="tag none">Off</span>'   # a day off that was called in before the shift
+
+
 def clock_cell(t, due='8:00 AM'):
     """A punch time with its tag. On time means at or before the due minute."""
     from datetime import datetime
@@ -94,8 +97,8 @@ def totals(traded):
 def rows(data):
     out = []
     for p in data.get('pending', []):
-        punch = (data.get('inbox', {}).get(p['date']) or {}).get('clock_in')
-        ck = clock_cell(punch, data.get('clock_due', '8:00 AM')) if punch else ('<span class="tag late">Late</span>' if p.get('late') else '&mdash;')
+        box = data.get('inbox', {}).get(p['date']) or {}; punch = box.get('clock_in')
+        ck = clock_cell(punch, data.get('clock_due', '8:00 AM')) if punch else (OFF if box.get('off') else ('<span class="tag late">Late</span>' if p.get('late') else '&mdash;'))
         out.append(f'<tr class="pending"><td>{label(p["date"])}</td><td>{ck}</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td>{p["note"]}</td><td>&mdash;</td></tr>')
     for d in data['days'][::-1]:
         if d.get('flat'):

@@ -4,6 +4,7 @@
   python3 tools/clock.py punch --date 2026-11-27 --time "7:52 AM"   record a punch (the time the punch message arrived)
   python3 tools/clock.py check --date 2026-11-27                    the 8:01 AM check: no punch yet -> today's row shows LATE
   python3 tools/clock.py journal --date 2026-11-27 --text "..."     record the day's journal entry for the nightly post
+  python3 tools/clock.py off --date 2026-11-27                      a day off, called in before 8:00 AM: no LATE, no N/A
 
 Exit 0 = something changed, 3 = nothing to change, 2 = market closed that day.
 """
@@ -13,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build
 from post_day import HOLIDAYS
 
-ap = argparse.ArgumentParser(); ap.add_argument('cmd', choices=['punch', 'check', 'journal']); ap.add_argument('--date', required=True)
+ap = argparse.ArgumentParser(); ap.add_argument('cmd', choices=['punch', 'check', 'journal', 'off']); ap.add_argument('--date', required=True)
 ap.add_argument('--time'); ap.add_argument('--text')
 a = ap.parse_args()
 d = date.fromisoformat(a.date)
@@ -33,8 +34,12 @@ if a.cmd == 'punch':
     if 'clock_in' in box: sys.exit(f'already punched in at {box["clock_in"]}; the first punch stands')
     box['clock_in'] = t; pend.pop('late', None)
     out.update(punched=t, on_time=datetime.strptime(t, '%I:%M %p').time() <= datetime.strptime(data.get('clock_due', '8:00 AM'), '%I:%M %p').time())
+elif a.cmd == 'off':
+    if box.get('clock_in'): sys.exit('already punched in today; cannot also be off')
+    box['off'] = True; pend.pop('late', None); pend['note'] = 'Day off, called in before the shift'; out.update(off=True)
 elif a.cmd == 'check':
     if box.get('clock_in'): out.update(punched=box['clock_in'], late=False)
+    elif box.get('off'): out.update(punched=None, late=False, off=True)
     else: pend['late'] = True; out.update(punched=None, late=True)
 else:
     if not a.text: sys.exit('--text is required')

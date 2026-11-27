@@ -120,7 +120,7 @@ def record(s, day, n, inbox, due='8:00 AM'):
     fields = [['Root cause (def night shift)' if faults else 'Findings', '<ul>' + ''.join(f'<li>{x}</li>' for x in li) + '</ul>'],
               ['Corrective action', LIMIT_FIX if faults else 'None needed. Same rules tomorrow.']]
     j = (inbox or {}).get('journal')
-    fields.append(['Journal', f'&ldquo;{html.escape(j, quote=False)}&rdquo;' if j else NA])
+    fields.append(['Journal', f'&ldquo;{html.escape(j, quote=False)}&rdquo;' if j else ('Day off. No journal owed.' if (inbox or {}).get('off') else NA)])
     return {'date': day, 'n': n, 'net': s['net'], 'round_trips': N, 'wins': W, 'fills': s['fills'], 'commissions': round(s['commissions'], 2), 'largest_pct': big,
             'clock_in': punch(inbox, due), 'finding': finding, 'home_note': home, 'tape': tape,
             'wo': {'id': f'WO-{n:03d}', 'status': 'Open' if faults else 'No fault found', 'fields': fields}, 'auto': True}
@@ -128,7 +128,8 @@ def record(s, day, n, inbox, due='8:00 AM'):
 
 def punch(inbox, due='8:00 AM'):
     t = (inbox or {}).get('clock_in')
-    return build.clock_cell(t, due) if t else NA
+    if t: return build.clock_cell(t, due)
+    return build.OFF if (inbox or {}).get('off') else NA
 
 
 def main():
@@ -148,7 +149,7 @@ def main():
     inbox = data.get('inbox', {}).get(a.date)
     s = score(trades, a.date, a.nav)
     if s['fills'] == 0:
-        rec = {'date': a.date, 'flat': True, 'clock_in': punch(inbox, data.get('clock_due', '8:00 AM')), 'finding': 'No trades. Stayed flat', 'auto': True}
+        rec = {'date': a.date, 'flat': True, 'clock_in': punch(inbox, data.get('clock_due', '8:00 AM')), 'finding': 'Day off. No trades' if (inbox or {}).get('off') else 'No trades. Stayed flat', 'auto': True}
     else:
         n = sum(1 for x in data['days'] if not x.get('flat')) + 1
         rec = record(s, a.date, n, inbox, data.get('clock_due', '8:00 AM'))
