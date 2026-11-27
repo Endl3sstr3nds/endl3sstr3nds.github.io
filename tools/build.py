@@ -5,7 +5,7 @@ Blocks live between <!--auto:NAME--> and <!--/auto:NAME--> markers:
   tape     homepage receipts tape (latest 5 traded days)
   home     homepage stat cards
   totals   Logbook totals
-  rows     Logbook daily log rows
+  rows     Logbook daily log rows (today's row shows the punch, or LATE after the 8:01 check)
   wos      Logbook work orders
 Everything outside the markers is left alone. Run:  python3 tools/build.py
 """
@@ -27,6 +27,17 @@ def money(v, places=2):
     return f'${a}'
 def cls(v): return 'neg' if round(v, 2) < 0 else ('pos' if round(v, 2) > 0 else '')
 def winrate(d): return f"{round(100 * d['wins'] / d['round_trips'])}%" if d['round_trips'] else '&mdash;'
+
+
+def clock_cell(t, due='8:00 AM'):
+    """A punch time with its tag. On time means at or before the due minute."""
+    from datetime import datetime
+    import html as _h
+    try:
+        ok = datetime.strptime(t.strip().upper(), '%I:%M %p').time() <= datetime.strptime(due, '%I:%M %p').time()
+    except ValueError:
+        ok = False
+    return f'{_h.escape(t)} <span class="tag {"ok" if ok else "late"}">{"On time" if ok else "Late"}</span>'
 
 
 def tape(traded):
@@ -83,7 +94,9 @@ def totals(traded):
 def rows(data):
     out = []
     for p in data.get('pending', []):
-        out.append(f'<tr class="pending"><td>{label(p["date"])}</td><td>&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td>{p["note"]}</td><td>&mdash;</td></tr>')
+        punch = (data.get('inbox', {}).get(p['date']) or {}).get('clock_in')
+        ck = clock_cell(punch, data.get('clock_due', '8:00 AM')) if punch else ('<span class="tag late">Late</span>' if p.get('late') else '&mdash;')
+        out.append(f'<tr class="pending"><td>{label(p["date"])}</td><td>{ck}</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td>{p["note"]}</td><td>&mdash;</td></tr>')
     for d in data['days'][::-1]:
         if d.get('flat'):
             out.append(f'<tr><td>{label(d["date"])}</td><td>{d["clock_in"]}</td><td class="num">$0.00</td><td class="num">0</td><td class="num">&mdash;</td><td>{d["finding"]}</td><td>&mdash;</td></tr>')

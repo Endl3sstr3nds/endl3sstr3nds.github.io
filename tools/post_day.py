@@ -128,12 +128,7 @@ def record(s, day, n, inbox, due='8:00 AM'):
 
 def punch(inbox, due='8:00 AM'):
     t = (inbox or {}).get('clock_in')
-    if not t: return NA
-    try:
-        ok = datetime.strptime(t.strip().upper(), '%I:%M %p').time() <= datetime.strptime(due, '%I:%M %p').time()
-        return f'{html.escape(t)} <span class="tag {"ok" if ok else "late"}">{"On time" if ok else "Late"}</span>'
-    except ValueError:
-        return f'{html.escape(t)} <span class="tag late">Late</span>'
+    return build.clock_cell(t, due) if t else NA
 
 
 def main():
