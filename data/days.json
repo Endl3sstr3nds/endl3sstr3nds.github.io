@@ -2,12 +2,7 @@
  "_readme": "One record per trading day, oldest first. tools/build.py renders these into index.html. tools/post_day.py appends a day from the broker fills. inbox holds a clock-in time or journal entry given ahead of the nightly post, keyed by date.",
  "limit_pct": 25,
  "clock_due": "8:00 AM",
- "pending": [
-  {
-   "date": "2026-11-27",
-   "note": "Day off, called in before the shift"
-  }
- ],
+ "pending": [],
  "inbox": {
   "2026-11-27": {
    "off": true,
@@ -200,6 +195,64 @@
     ]
    },
    "auto": false
+  },
+  {
+   "date": "2026-11-27",
+   "n": 4,
+   "net": -26.1714,
+   "round_trips": 3,
+   "wins": 0,
+   "fills": 7,
+   "commissions": 0.07,
+   "largest_pct": 36,
+   "clock_in": "<span class=\"tag none\">Off</span>",
+   "finding": "Oversized at 36%, 0 for 3, re-entry after a loss",
+   "home_note": "3 round trips, 0 winners. Worst hour was 10&ndash;11 AM",
+   "tape": [
+    [
+     "ROUND TRIPS",
+     "3"
+    ],
+    [
+     "WIN RATE",
+     "0%"
+    ],
+    [
+     "LARGEST SIZE",
+     "36% of acct"
+    ],
+    [
+     "COMMISSIONS",
+     "$0.07"
+    ],
+    [
+     "WORST HOURS",
+     "10&ndash;11 AM &minus;$26"
+    ],
+    [
+     "EXITS BY STOP ORDER",
+     "1 of 3"
+    ]
+   ],
+   "wo": {
+    "id": "WO-004",
+    "status": "Open",
+    "fields": [
+     [
+      "Root cause (def night shift)",
+      "<ul><li>0 of 3 round trips made money. Worst one: AMD, &minus;$12.72, 10:14 AM to 10:25 AM</li><li>Oversized: AMD hit 36% of the account, and 2 of 3 round trips went over the 25% limit</li><li>1 of 3 round trips closed by a stop order</li><li>Re-entry: back in the same symbol within two minutes of taking a loss, 1 time</li><li>Worst hour: 10&ndash;11 AM, &minus;$26.17</li></ul>"
+     ],
+     [
+      "Corrective action",
+      "WO-001 stays open. Same fix: written setup card first, 1% risk, 25% max position."
+     ],
+     [
+      "Journal",
+      "&ldquo;Wasn't planning on trading today. Saw TSLA up 18%, or so I thought, and it reeled me in. It was 18 bucks, not 18 percent. Took a planned AMD trade with a written thesis and it didn't work out. Then threw 60 bucks at DCX as an honest fuck around trade. The setup was shit and I only did it for fun to see if it would pop on more volume. It didn't. Stop right below VWAP, stopped out for a 10 dollar loss. Two small trades, down about 26 bucks total.&rdquo;"
+     ]
+    ]
+   },
+   "auto": true
   }
  ]
 }
